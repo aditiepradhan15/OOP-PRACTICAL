@@ -1,0 +1,97 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Employee {
+protected:
+    int empID;
+    string name;
+
+public:
+    void accept() {
+        cout << "Enter Employee ID: ";
+        cin >> empID;
+        cout << "Enter Employee Name: ";
+        cin >> name;
+    }
+
+    void display() {
+        cout << "Employee ID: " << empID << endl;
+        cout << "Employee Name: " << name << endl;
+    }
+};
+
+// Derived class 1
+class Manager : public Employee {
+private:
+    string department;
+
+public:
+    void acceptManager() {
+        accept(); // get base class data
+        cout << "Enter Department: ";
+        cin >> department;
+    }
+
+    void displayManager() {
+        display(); // display base class data
+        cout << "Department: " << department << endl;
+    }
+};
+
+// Derived class 2
+class Developer : public Employee {
+private:
+    string programmingLanguage;
+
+public:
+    void acceptDeveloper() {
+        accept(); // get base class data
+        cout << "Enter Programming Language: ";
+        cin >> programmingLanguage;
+    }
+
+    void displayDeveloper() {
+        display(); // display base class data
+        cout << "Programming Language: " << programmingLanguage << endl;
+    }
+};
+
+int main() {
+    Manager m1;
+    Developer d1;
+
+    cout << "Enter details for Manager:\n";
+    m1.acceptManager();
+
+    cout << "\nEnter details for Developer:\n";
+    d1.acceptDeveloper();
+
+    cout << "\n--- Manager Details ---\n";
+    m1.displayManager();
+
+    cout << "\n--- Developer Details ---\n";
+    d1.displayDeveloper();
+
+    return 0;
+}
+output
+Enter details for Manager:
+Enter Employee ID: 101
+Enter Employee Name: aditi
+Enter Department: IT
+
+Enter details for Developer:
+Enter Employee ID: 102
+Enter Employee Name: Chet
+Enter Programming Language: C++
+
+--- Manager Details ---
+Employee ID: 101
+Employee Name: aditi
+Department: IT
+
+--- Developer Details ---
+Employee ID: 102
+Employee Name: Chet
+Programming Language: C++
