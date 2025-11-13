@@ -1,0 +1,61 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+struct Person {
+    string name;
+    int age;
+
+    Person(string n, int a) : name(n), age(a) {}
+};
+
+int compareAge(const Person &p1, const Person &p2) {
+    return (p1.age < p2.age);
+}
+
+int main() {
+    vector<Person> people = {
+        Person("Alice", 30),
+        Person("Bob", 25),
+        Person("Charlie", 35),
+        Person("David", 28)
+    };
+
+    // Sort by age
+    sort(people.begin(), people.end(),
+         [](const Person &a, const Person &b) {
+             return compareAge(a, b);
+         });
+
+    cout << "Sorted records by age:\n";
+    for (auto &p : people)
+        cout << p.name << " - " << p.age << "\n";
+
+    // Search for a person with a specific age
+    int searchAge = 28;
+    int foundIndex = -1;
+
+    for (int i = 0; i < (int)people.size(); i++) {
+        if (people[i].age == searchAge) {
+            foundIndex = i;
+            break;
+        }
+    }
+
+    if (foundIndex != -1)
+        cout << "\nPerson with age " << searchAge << " found: "
+             << people[foundIndex].name << endl;
+    else
+        cout << "\nPerson with age " << searchAge << " not found." << endl;
+
+    return 0;
+}
+output
+Sorted records by age:
+Bob - 25
+David - 28
+Alice - 30
+Charlie - 35
+
+Person with age 28 found: David
