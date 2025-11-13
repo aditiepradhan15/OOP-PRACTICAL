@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> vec = {2, 9, 15};
+    int scalar;
+
+    cout << "Enter scalar value: ";
+    cin >> scalar;
+
+    cout << "Result after multiplying by scalar: ";
+    for (int val : vec) {
+        cout << val * scalar << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+output
+Enter scalar value: 3
+Result after multiplying by scalar: 6 27 45
