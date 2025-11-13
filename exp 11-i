@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+template <typename T>
+class Vector {
+    T a[100];
+    int size;
+
+public:
+    Vector(int s) {
+        size = s;
+    }
+
+    void set(int i, T val) {
+        if (i >= 0 && i < size)
+            a[i] = val;
+        else
+            cout << "Invalid index!" << endl;
+    }
+
+    T get(int i) {
+        if (i >= 0 && i < size)
+            return a[i];
+        else {
+            cout << "Invalid index!" << endl;
+            return 0;
+        }
+    }
+
+    void display() {
+        for (int i = 0; i < size; i++)
+            cout << a[i] << " ";
+        cout << endl;
+    }
+};
+
+int main() {
+    Vector<int> v(5);
+
+    // Initialize vector elements
+    for (int i = 0; i < 5; i++)
+        v.set(i, (i + 1) * 10);
+
+    cout << "Before modification: ";
+    v.display();
+
+    // Modify one element
+    v.set(2, 99);
+
+    cout << "After modification: ";
+    v.display();
+
+    return 0;
+}
+output
+Before modification: 10 20 30 40 50 
+After modification: 10 20 99 40 50
