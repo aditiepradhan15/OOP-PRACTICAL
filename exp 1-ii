@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class time1 {
+    int hr, min;
+public:
+    void accept() {
+        cout << "Enter time in hours and minutes: ";
+        cin >> hr >> min;
+    }
+
+    void display() {
+        int total;
+        total = (hr * 3600) + (min * 60);
+        cout << "Total time in seconds = " << total << endl;
+    }
+};
+
+int main() {
+    time1 t1;
+    t1.accept();
+    t1.display();
+    return 0;
+}
+output
+Enter time in hours and minutes: 1 10
+Total time in seconds = 4200
