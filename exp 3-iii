@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    int roll;
+    string name;
+
+public:
+    void accept() {
+        cout << "Enter roll no and name: ";
+        cin >> roll;
+        cin.ignore(); 
+        getline(cin, name);
+    }
+
+    void display() {
+        cout << "\nName: " << name << endl;
+        cout << "Roll No: " << roll << endl;
+    }
+};
+
+class Marks {
+    int m1, m2;
+    float avg;
+
+public:
+    void accept() {
+        cout << "Enter marks m1 and m2: ";
+        cin >> m1 >> m2;
+    }
+
+    void calculate_avg() {
+        avg = (m1 + m2) / 2.0;
+    }
+
+    void display() {
+        cout << "Average of marks is: " << avg << endl;
+    }
+};
+
+int main() {
+    Student s;
+    s.accept();
+    s.display();
+
+    Marks m;
+    m.accept();
+    m.calculate_avg();
+    m.display();
+
+    return 0;
+}
+output
+Enter roll no and name: 61
+Aditi
+
+Name: Aditi
+Roll No: 61
+Enter marks m1 and m2: 90 89
+Average of marks is: 89.5
