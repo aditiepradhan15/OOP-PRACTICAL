@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+class Sum {
+    int n;
+    int total;
+
+public:
+    // Parameterized constructor
+    Sum(int num) {
+        n = num;
+        total = 0;
+        for (int i = 1; i <= n; i++) {
+            total += i;
+        }
+    }
+
+    // Copy constructor
+    Sum(const Sum &obj) {
+        total = obj.total;
+    }
+
+    // Display function
+    void display() {
+        cout << "Sum = " << total << endl;
+    }
+
+    // Destructor
+    ~Sum() {
+        cout << "Object destroyed" << endl;
+    }
+};
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    Sum s1(num);   // Parameterized constructor called
+    Sum s2(s1);    // Copy constructor called
+
+    s2.display();  // Display result using copied object
+
+    return 0;
+}
+output
+Enter a number: 4
+Sum = 10
+Object destroyed
+Object destroyed
