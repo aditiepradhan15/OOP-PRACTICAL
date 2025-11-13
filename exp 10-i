@@ -1,0 +1,31 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    fstream file("file.txt");
+
+    if (!file) {
+        cout << "Unable to open file." << endl;
+        return 1;
+    }
+
+    char ch;
+    int digit_count = 0, space_count = 0;
+
+    while (file.get(ch)) {
+        if (ch >= '0' && ch <= '9')
+            digit_count++;
+        else if (ch == ' ')
+            space_count++;
+    }
+
+    cout << "Digits: " << digit_count << endl;
+    cout << "Spaces: " << space_count << endl;
+
+    file.close();
+    return 0;
+}
+output
+Digits: 5
+Spaces: 12
