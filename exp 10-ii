@@ -1,0 +1,39 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    fstream file("file.txt", ios::in);
+
+    if (!file) {
+        cout << "Unable to open file." << endl;
+        return 1;
+    }
+
+    char ch;
+    int word_count = 0;
+    bool in_word = false;
+
+    while (file.get(ch)) {
+        // Check if character is part of a word (letter or digit)
+        if ((ch >= 'a' && ch <= 'z') || 
+            (ch >= 'A' && ch <= 'Z') || 
+            (ch >= '0' && ch <= '9')) 
+        {
+            if (!in_word) {
+                in_word = true;
+                word_count++;
+            }
+        } 
+        else {
+            in_word = false;
+        }
+    }
+
+    cout << "Word count: " << word_count << endl;
+
+    file.close();
+    return 0;
+}
+output
+Hello world 123 this is a test.
