@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class College {
+    int roll_no;
+    string name;
+    string course;
+
+public:
+    // Constructor with 3 parameters
+    College(int r, string n, string c) {
+        roll_no = r;
+        name = n;
+        course = c;
+    }
+
+    // Constructor with 2 parameters (default course)
+    College(int r, string n) {
+        roll_no = r;
+        name = n;
+        course = "Computer Engineering";
+    }
+
+    // Display function
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "Roll No: " << roll_no << endl;
+        cout << "Course: " << course << endl;
+    }
+};
+
+int main() {
+    College c1(1, "Aditi", "Electrical Engineering");
+    College c2(2, "Aditi");
+
+    c1.display();
+    c2.display();
+
+    return 0;
+}
+output
+Name: Aditi
+Roll No: 1
+Course: Electrical Engineering
+Name: Aditi
+Roll No: 2
+Course: Computer Engineering
