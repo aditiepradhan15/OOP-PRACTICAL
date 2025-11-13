@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+    int roll;
+    float per;
+
+public:
+    void accept() {
+        cout << "Enter student roll no and percentage: ";
+        cin >> this->roll >> this->per;   // using 'this' pointer
+    }
+
+    void display() {
+        cout << "\nRoll = " << roll << endl;
+        cout << "Percentage = " << per << endl;
+    }
+};
+
+int main() {
+    Student s1;
+
+    s1.accept();    
+    s1.display();   
+
+    return 0;
+}
+output
+Enter student roll no and percentage: 61 87
+
+Roll = 61
+Percentage = 87
