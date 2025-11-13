@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    int per;
+    string name;
+
+public:
+    // Default constructor
+    Student() {
+        per = 70;
+        name = "abc";
+    }
+
+    // Display function
+    void display() {
+        cout << "Name = " << name << endl;
+        cout << "Percentage = " << per << endl;
+    }
+
+    // Destructor
+    ~Student() {
+        cout << "Object destroyed" << endl;
+    }
+};
+
+int main() {
+    Student s1;  // Object created
+    s1.display(); // Display details
+
+    return 0;
+}
+output
+Name = abc
+Percentage = 70
+Object destroyed
