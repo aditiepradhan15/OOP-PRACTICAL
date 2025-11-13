@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+template <typename T>
+class Stack {
+private:
+    vector<T> elements;
+
+public:
+    void push(T item) {
+        elements.push_back(item);
+        cout << item << " pushed to stack" << endl;
+    }
+
+    void pop() {
+        if (elements.empty()) {
+            cout << "Stack is empty, cannot pop." << endl;
+        } else {
+            cout << elements.back() << " popped from stack" << endl;
+            elements.pop_back();
+        }
+    }
+
+    void display() {
+        cout << "Stack elements: ";
+        for (auto it = elements.begin(); it != elements.end(); ++it) {
+            cout << *it << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Stack<int> s1;
+
+    s1.push(10);
+    s1.push(20);
+    s1.push(30);
+
+    s1.display();
+    s1.pop();
+
+    return 0;
+}
+output
+10 pushed to stack
+20 pushed to stack
+30 pushed to stack
+Stack elements: 10 20 30 
+30 popped from stack
