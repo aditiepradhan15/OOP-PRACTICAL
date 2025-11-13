@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class B; // Forward declaration
+
+class A {
+    int numA;
+
+public:
+    void accept() {
+        cout << "Enter number A: ";
+        cin >> numA;
+    }
+
+    void display() {
+        cout << "Number A = " << numA << endl;
+    }
+
+    // Declare friend function
+    friend void swapNumbers(A &x, B &y);
+};
+
+class B {
+    int numB;
+
+public:
+    void accept() {
+        cout << "Enter number B: ";
+        cin >> numB;
+    }
+
+    void display() {
+        cout << "Number B = " << numB << endl;
+    }
+
+    // Declare friend function
+    friend void swapNumbers(A &x, B &y);
+};
+
+// Definition of friend function
+void swapNumbers(A &x, B &y) {
+    int temp = x.numA;
+    x.numA = y.numB;
+    y.numB = temp;
+}
+
+int main() {
+    A objA;
+    B objB;
+
+    objA.accept();
+    objB.accept();
+
+    swapNumbers(objA, objB);
+
+    cout << "\nAfter swapping:\n";
+    objA.display();
+    objB.display();
+
+    return 0;
+}
+output
+Enter number A: 62
+Enter number B: 89
+
+After swapping:
+Number A = 89
+Number B = 62
