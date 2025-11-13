@@ -1,0 +1,88 @@
+#include <iostream>
+using namespace std;
+
+template <class T>
+class Calculator {
+private:
+    T num1, num2;
+
+public:
+    Calculator(T n1, T n2) {
+        num1 = n1;
+        num2 = n2;
+    }
+
+    T add() {
+        return num1 + num2;
+    }
+
+    T subtract() {
+        return num1 - num2;
+    }
+
+    T multiply() {
+        return num1 * num2;
+    }
+
+    T divide() {
+        if (num2 != 0)
+            return num1 / num2;
+        else {
+            cout << "Error! Division by zero." << endl;
+            return 0;
+        }
+    }
+
+    void displayNumbers() {
+        cout << "Numbers are: " << num1 << " and " << num2 << endl;
+    }
+};
+
+int main() {
+    double n1, n2;
+    int choice;
+
+    cout << "Enter two numbers: ";
+    cin >> n1 >> n2;
+
+    Calculator<double> calc(n1, n2);
+
+    cout << "\nChoose an operation:\n";
+    cout << "1. Addition\n";
+    cout << "2. Subtraction\n";
+    cout << "3. Multiplication\n";
+    cout << "4. Division\n";
+    cout << "Enter choice: ";
+    cin >> choice;
+
+    cout << "\nResult: ";
+    switch (choice) {
+        case 1:
+            cout << calc.add() << endl;
+            break;
+        case 2:
+            cout << calc.subtract() << endl;
+            break;
+        case 3:
+            cout << calc.multiply() << endl;
+            break;
+        case 4:
+            cout << calc.divide() << endl;
+            break;
+        default:
+            cout << "Invalid choice!" << endl;
+    }
+
+    return 0;
+}
+output
+Enter two numbers: 10 5
+
+Choose an operation:
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+Enter choice: 3
+
+Result: 50
