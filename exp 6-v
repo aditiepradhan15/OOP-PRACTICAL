@@ -1,0 +1,106 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Person {
+protected:
+    string name;
+    int age;
+
+public:
+    void acceptPersonData() {
+        cout << "Enter name: ";
+        cin >> name;
+        cout << "Enter age: ";
+        cin >> age;
+    }
+
+    void showPersonData() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+    }
+};
+
+// Derived class 1
+class Student : virtual public Person {
+protected:
+    int roll_no;
+
+public:
+    void getStudentData() {
+        cout << "Enter roll no: ";
+        cin >> roll_no;
+    }
+
+    void showStudentData() {
+        cout << "Roll No: " << roll_no << endl;
+    }
+};
+
+// Derived class 2
+class Sports : virtual public Person {
+protected:
+    int sports_marks;
+
+public:
+    void getSportsMarks() {
+        cout << "Enter sports marks: ";
+        cin >> sports_marks;
+    }
+
+    void showSportsMarks() {
+        cout << "Sports Marks: " << sports_marks << endl;
+    }
+};
+
+// Derived class from both Student and Sports
+class Result : public Student, public Sports {
+private:
+    int academic_marks;
+    int total_marks;
+
+public:
+    void getAcademicMarks() {
+        cout << "Enter academic marks: ";
+        cin >> academic_marks;
+    }
+
+    void displayResult() {
+        total_marks = sports_marks + academic_marks;
+
+        cout << "\n--- Result ---" << endl;
+        showPersonData();
+        showStudentData();
+        showSportsMarks();
+        cout << "Academic Marks: " << academic_marks << endl;
+        cout << "Total Marks: " << total_marks << endl;
+    }
+};
+
+// Main function
+int main() {
+    Result r1;
+
+    r1.acceptPersonData();
+    r1.getStudentData();
+    r1.getSportsMarks();
+    r1.getAcademicMarks();
+
+    r1.displayResult();
+
+    return 0;
+}
+output
+Enter name: Aditi
+Enter age: 17
+Enter roll no: 58
+Enter sports marks: 98
+Enter academic marks: 99
+
+--- Result ---
+Name: Aditi
+Age: 17
+Roll No: 58
+Sports Marks: 98
+Academic Marks: 99
+Total Marks: 197
