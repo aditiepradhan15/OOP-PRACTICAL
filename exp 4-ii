@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+class Temp {
+    int x, y;
+
+public:
+    void accept() {
+        cout << "Enter two numbers: ";
+        cin >> x >> y;
+    }
+
+    void display() {
+        cout << "After swap x = " << x << endl;
+        cout << "After swap y = " << y << endl;
+    }
+
+    // Declaration of friend function
+    friend void swap(Temp &t);
+};
+
+// Definition of friend function
+void swap(Temp &t) {
+    int temp;
+    temp = t.x;
+    t.x = t.y;
+    t.y = temp;
+}
+
+int main() {
+    Temp t;
+
+    t.accept();
+    swap(t);      // call friend function
+    t.display();  // display swapped values
+
+    return 0;
+}
+output
+Enter two numbers: 9 6
+After swap x = 6
+After swap y = 9
