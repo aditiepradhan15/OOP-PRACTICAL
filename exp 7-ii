@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+// Function to add 5 float numbers
+float sum(float a, float b, float c, float d, float e) {
+    return a + b + c + d + e;
+}
+
+// Function to add 10 integer numbers
+int sum(int a1, int a2, int a3, int a4, int a5,
+        int a6, int a7, int a8, int a9, int a10) {
+    return a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10;
+}
+
+int main() {
+    float f1, f2, f3, f4, f5;
+    cout << "Enter 5 float values: ";
+    cin >> f1 >> f2 >> f3 >> f4 >> f5;
+
+    cout << "Sum of float values = " << sum(f1, f2, f3, f4, f5) << endl;
+
+    int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
+    cout << "\nEnter 10 integer values: ";
+    cin >> i1 >> i2 >> i3 >> i4 >> i5 >> i6 >> i7 >> i8 >> i9 >> i10;
+
+    cout << "Sum of integer values = " 
+         << sum(i1, i2, i3, i4, i5, i6, i7, i8, i9, i10) << endl;
+
+    return 0;
+}
+output
+Enter 5 float values: 1.2 2.3 3.4 4.5 5.6
+Sum of float values = 17
+
+Enter 10 integer values: 1 2 3 4 5 6 7 8 9 10
+Sum of integer values = 55
