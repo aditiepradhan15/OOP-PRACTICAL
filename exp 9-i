@@ -1,0 +1,35 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    fstream file1, file2;
+    char ch;
+
+    file1.open("first.txt", ios::in);
+    file2.open("second.txt", ios::out);
+
+    if (!file1) {
+        cout << "Error: Cannot open source file!" << endl;
+        return 1;
+    }
+
+    if (!file2) {
+        cout << "Error: Cannot create destination file!" << endl;
+        file1.close();
+        return 1;
+    }
+
+    while (file1.get(ch)) {
+        file2.put(ch);
+    }
+
+    cout << "File copied successfully." << endl;
+
+    file1.close();
+    file2.close();
+
+    return 0;
+}
+output
+File copied successfully.
