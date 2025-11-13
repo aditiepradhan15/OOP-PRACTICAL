@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Vehicle {
+public:
+    string brand;
+    string model;
+    string type;
+};
+
+// Derived class
+class ElectricCar : public Vehicle {
+private:
+    int battery_capacity;
+
+public:
+    void accept() {
+        cout << "Enter vehicle brand: ";
+        cin >> brand;
+        cout << "Enter vehicle model: ";
+        cin >> model;
+        cout << "Enter car type: ";
+        cin >> type;
+        cout << "Enter battery capacity: ";
+        cin >> battery_capacity;
+    }
+
+    void display() {
+        cout << "\nVehicle Brand: " << brand;
+        cout << "\nVehicle Model: " << model;
+        cout << "\nCar Type: " << type;
+        cout << "\nBattery Capacity: " << battery_capacity << " kWh" << endl;
+    }
+};
+
+int main() {
+    ElectricCar e1;
+    e1.accept();
+    e1.display();
+    return 0;
+}
+output
+Enter vehicle brand: Tesla
+Enter vehicle model: Model3
+Enter car type: Sedan
+Enter battery capacity: 59
+
+Vehicle Brand: Tesla
+Vehicle Model: Model3
+Car Type: Sedan
+Battery Capacity: 59 kWh
