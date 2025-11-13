@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+class Result2; // Forward declaration
+
+class Result1 {
+    int a;
+
+public:
+    void accept() {
+        cout << "Enter marks out of 50: ";
+        cin >> a;
+    }
+
+    // Declare friend function
+    friend void calc(Result1 r1, Result2 r2);
+};
+
+class Result2 {
+    int b;
+
+public:
+    void accept() {
+        cout << "Enter marks out of 50: ";
+        cin >> b;
+    }
+
+    // Declare friend function
+    friend void calc(Result1 r1, Result2 r2);
+};
+
+// Friend function definition
+void calc(Result1 r1, Result2 r2) {
+    float avg = (r1.a + r2.b) / 2.0;
+    cout << "\nAverage = " << avg << endl;
+}
+
+int main() {
+    Result1 r1;
+    Result2 r2;
+
+    r1.accept();
+    r2.accept();
+
+    calc(r1, r2);
+
+    return 0;
+}
+output
+Enter marks out of 50: 45
+Enter marks out of 50: 46
+
+Average = 45.5
