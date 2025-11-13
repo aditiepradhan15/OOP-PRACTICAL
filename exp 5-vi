@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    int per;
+    string name;
+
+public:
+    // Default constructor
+    Student() {
+        per = 90;
+        name = "abc";
+    }
+
+    // Copy constructor
+    Student(const Student &s) {
+        per = s.per;
+        name = s.name;
+    }
+
+    // Display function
+    void display() {
+        cout << "Name = " << name << endl;
+        cout << "Percentage = " << per << endl;
+    }
+
+    // Destructor
+    ~Student() {
+        cout << "Object destroyed" << endl;
+    }
+};
+
+int main() {
+    Student s1;     // Default constructor called
+    Student s2(s1); // Copy constructor called
+
+    cout << "Student 1:" << endl;
+    s1.display();
+
+    cout << "Student 2:" << endl;
+    s2.display();
+
+    return 0;
+}
+output
+Student 1:
+Name = abc
+Percentage = 90
+Student 2:
+Name = abc
+Percentage = 90
+Object destroyed
+Object destroyed
