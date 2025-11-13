@@ -1,0 +1,57 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class City {
+    int population;
+    string name;
+
+public:
+    void accept() {
+        cout << "Enter city name and population: ";
+        cin >> name >> population;
+    }
+
+    void display() {
+        cout << "Name: " << name << ", Population: " << population << endl;
+    }
+
+    int getPopulation() {
+        return population;
+    }
+
+    string getName() {
+        return name;
+    }
+};
+
+int main() {
+    City c[5];
+    for (int i = 0; i < 5; i++) {
+        c[i].accept();
+    }
+
+    int maxIndex = 0;
+    int maxPopulation = c[0].getPopulation();
+
+    for (int i = 1; i < 5; i++) {
+        if (c[i].getPopulation() > maxPopulation) {
+            maxPopulation = c[i].getPopulation();
+            maxIndex = i;
+        }
+    }
+
+    cout << "\nCity with highest population:\n";
+    c[maxIndex].display();
+
+    return 0;
+}
+output
+Enter city name and population: Mumbai 20411000
+Enter city name and population: Delhi 19814000
+Enter city name and population: Bengaluru 12360000
+Enter city name and population: Hyderabad 10400000
+Enter city name and population: Chennai 10000000
+
+City with highest population:
+Name: Mumbai, Population: 20411000
