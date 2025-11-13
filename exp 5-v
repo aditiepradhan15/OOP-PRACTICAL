@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    int per;
+    string name;
+
+public:
+    // Parameterized constructor
+    Student(int p, string n) {
+        per = p;
+        name = n;
+    }
+
+    // Display function
+    void display() {
+        cout << "Percentage = " << per << endl;
+        cout << "Name = " << name << endl;
+    }
+
+    // Destructor
+    ~Student() {
+        cout << "Object destroyed" << endl;
+    }
+};
+
+int main() {
+    Student s1(90, "Aditi"); // Passing values to constructor
+    s1.display();
+
+    return 0;
+}
+output
+Percentage = 90
+Name = Aditi
+Object destroyed
