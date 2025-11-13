@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book {
+    float price;
+    string book_name;
+    string author_name;
+
+public:
+    void accept() {
+        cout << "Enter book name: ";
+        getline(cin, book_name);
+        cout << "Enter author name: ";
+        getline(cin, author_name);
+        cout << "Enter price: ";
+        cin >> price;
+    }
+
+    void display() {
+        cout << "\nBook Name: " << book_name << endl;
+        cout << "Author Name: " << author_name << endl;
+        cout << "Price: " << price << endl;
+    }
+};
+
+int main() {
+    Book b, *ptr;
+    ptr = &b;
+
+    // Use pointer to access members
+    ptr->accept();
+    ptr->display();
+
+    return 0;
+}
+output
+Enter book name: Harry Potter
+Enter author name: J.K. Rowling
+Enter price: 1000
+
+Book Name: Harry Potter
+Author Name: J.K. Rowling
+Price: 1000
