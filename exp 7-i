@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+// Function to calculate area of rectangle
+float area(float length, float breadth) {
+    return length * breadth;
+}
+
+// Function to calculate area of square
+float area(float side) {
+    return side * side;
+}
+
+int main() {
+    float length, breadth, side;
+
+    cout << "Enter length & breadth of laboratory (rectangle): ";
+    cin >> length >> breadth;
+
+    cout << "Area of laboratory: " << area(length, breadth) << endl;
+
+    cout << "Enter side of classroom (square): ";
+    cin >> side;
+
+    cout << "Area of classroom: " << area(side) << endl;
+
+    return 0;
+}
+output
+Enter length & breadth of laboratory (rectangle): 35 46
+Area of laboratory: 1610
+Enter side of classroom (square): 56
+Area of classroom: 3136
