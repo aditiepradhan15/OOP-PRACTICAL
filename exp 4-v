@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+class B; // Forward declaration
+
+class A {
+    int a;
+
+public:
+    void accept() {
+        cout << "Enter a value for A: ";
+        cin >> a;
+    }
+
+    // Declare friend function
+    friend void greaterValue(A x, B y);
+};
+
+class B {
+    int b;
+
+public:
+    void accept() {
+        cout << "Enter a value for B: ";
+        cin >> b;
+    }
+
+    // Declare friend function
+    friend void greaterValue(A x, B y);
+};
+
+// Definition of friend function
+void greaterValue(A x, B y) {
+    if (x.a > y.b)
+        cout << "\nFirst value is greater." << endl;
+    else if (x.a < y.b)
+        cout << "\nSecond value is greater." << endl;
+    else
+        cout << "\nBoth values are equal." << endl;
+}
+
+int main() {
+    A objA;
+    B objB;
+
+    objA.accept();
+    objB.accept();
+
+    greaterValue(objA, objB);
+
+    return 0;
+}
+output
+Enter a value for A: 25
+Enter a value for B: 40
+
+Second value is greater.
