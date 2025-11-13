@@ -1,0 +1,63 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Account {
+public:
+    int acc_no;
+    float bal;
+    string name;
+
+    void accept() {
+        cout << "Enter name of customer: ";
+        cin >> name;
+        cout << "Enter account number: ";
+        cin >> acc_no;
+        cout << "Enter balance: ";
+        cin >> bal;
+    }
+
+    void display() {
+        cout << "Customer Name: " << name << endl;
+        cout << "Account Number: " << acc_no << endl;
+        cout << "Balance: " << bal << endl;
+    }
+};
+
+int main() {
+    Account a[10];
+
+    for (int i = 0; i < 10; i++) {
+        cout << "\nEnter details for customer " << i + 1 << ":\n";
+        a[i].accept();
+    }
+
+    cout << "\nCustomers having balance >= 6000 (after adding 7% interest):\n";
+
+    for (int i = 0; i < 10; i++) {
+        if (a[i].bal >= 6000) {
+            a[i].bal = a[i].bal + (a[i].bal * 0.07); // add 7% interest
+            cout << "\nCustomer Name: " << a[i].name << endl;
+            cout << "Account Number: " << a[i].acc_no << endl;
+            cout << "Balance after interest: " << a[i].bal << endl;
+        }
+    }
+
+    return 0;
+}
+output
+Enter details for customer 1:
+Enter name of customer: James
+Enter account number: 1282242559
+Enter balance: 170000
+Enter details for customer 2:
+Enter name of customer: Charles
+Enter account number: 126224987
+Enter balance: 80000
+Customers having balance >= 6000 (after adding 7% interest):
+Customer Name: James
+Account Number: 1282242559
+Balance after interest: 181900
+Customer Name: Charles
+Account Number: 126224987
+Balance after interest: 85600
