@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+    int l, w;
+
+public:
+    // Default constructor
+    Rectangle() {
+        l = 1;
+        w = 1;
+    }
+
+    // Constructor with one parameter
+    Rectangle(int a) {
+        l = a;
+        w = a; // assuming square when only one value is given
+    }
+
+    // Constructor with two parameters
+    Rectangle(int a, int b) {
+        l = a;
+        w = b;
+    }
+
+    // Function to calculate area
+    void calculate() {
+        int area = l * w;
+        cout << "Area = " << area << endl;
+    }
+};
+
+int main() {
+    Rectangle r1;       
+    Rectangle r2(5);     
+    Rectangle r3(4, 5); 
+
+    r1.calculate();
+    r2.calculate();
+    r3.calculate();
+
+    return 0;
+}
+output
+Area = 1
+Area = 25
+Area = 20
