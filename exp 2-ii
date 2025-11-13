@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Staff {
+    string name;
+    string post;
+
+public:
+    void accept() {
+        cout << "Enter name & post: ";
+        cin >> name >> post;
+    }
+
+    void displayHOD() {
+        if (post == "HOD" || post == "hod" || post == "Hod") {
+            cout << "HOD " << name << endl;
+        }
+    }
+};
+
+int main() {
+    Staff s[5];
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Enter details for staff " << i + 1 << ":" << endl;
+        s[i].accept();
+    }
+
+    cout << "\nList of HODs:\n";
+    for (int i = 0; i < 5; i++) {
+        s[i].displayHOD();
+    }
+
+    return 0;
+}
+output
+Enter details for staff 1:
+Enter name & post: Alice HOD
+Enter details for staff 2:
+Enter name & post: Charlie HOD
+Enter details for staff 3:
+Enter name & post: Nia Assistant
+Enter details for staff 4:
+Enter name & post: David Lecturer
+Enter details for staff 5:
+Enter name & post: Eva Clerk
+
+List of HODs:
+HOD Alice
+HOD Charlie
