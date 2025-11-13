@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+class Number {
+private:
+    int value;
+
+public:
+    // Constructor
+    Number(int v = 0) : value(v) {}
+
+    // Pre-increment operator (++n)
+    Number& operator++() {
+        ++value;
+        return *this;
+    }
+
+    // Post-increment operator (n++)
+    Number operator++(int) {
+        Number temp = *this;
+        value++;
+        return temp;
+    }
+
+    // Display function
+    void display() const {
+        cout << "Value: " << value << endl;
+    }
+};
+
+int main() {
+    Number n(5);
+
+    cout << "Initial value:" << endl;
+    n.display();
+
+    cout << "\nPre-increment:" << endl;
+    ++n;
+    n.display();
+
+    cout << "\nPost-increment:" << endl;
+    n++;
+    n.display();
+
+    return 0;
+}
+output
+Initial value:
+Value: 5
+
+Pre-increment:
+Value: 6
+
+Post-increment:
+Value: 7
