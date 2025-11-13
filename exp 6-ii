@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+// Base class 1
+class Academic {
+protected:
+    int marks;
+};
+
+// Base class 2
+class Sports {
+protected:
+    int score;
+};
+
+// Derived class
+class Result : protected Academic, protected Sports {
+private:
+    int total_score;
+
+public:
+    void accept() {
+        cout << "Enter student marks: ";
+        cin >> marks;
+        cout << "Enter sports score: ";
+        cin >> score;
+    }
+
+    void calculate() {
+        total_score = marks + score;
+        cout << "\nStudent Marks = " << marks;
+        cout << "\nSports Score = " << score;
+        cout << "\nTotal Score = " << total_score << endl;
+    }
+};
+
+int main() {
+    Result r1;
+    r1.accept();
+    r1.calculate();
+    return 0;
+}
+output
+Enter student marks: 98
+Enter sports score: 89
+
+Student Marks = 98
+Sports Score = 89
+Total Score = 187
