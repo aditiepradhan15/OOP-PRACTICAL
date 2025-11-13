@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+class Sum {
+    int num;
+
+public:
+    // Constructor
+    Sum(int n) {
+        num = n;
+        int s = 0;
+        for (int i = 1; i <= num; i++) {
+            s = s + i;
+        }
+        cout << "Sum = " << s << endl;
+    }
+
+    // Destructor
+    ~Sum() {
+        cout << "Object destroyed" << endl;
+    }
+};
+
+int main() {
+    Sum s1(5); // passing value to constructor
+    return 0;
+}
+output
+Sum = 15
+Object destroyed
