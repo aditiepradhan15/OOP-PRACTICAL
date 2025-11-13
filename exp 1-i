@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class student {
+    int rollno;
+    string name;
+
+public:
+    void accept() {
+        cout << "Enter value of roll & name: ";
+        cin >> rollno >> name;
+    }
+
+    void display() {
+        cout << "Roll no: " << rollno << ", Name: " << name << endl;
+    }
+};
+
+int main() {
+    student s1;
+    s1.accept();
+    s1.display();
+    return 0;
+}
+output
+Enter value of roll & name: 61 Aditi
+Roll no: 61, Name: Aditi
