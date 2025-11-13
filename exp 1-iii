@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book {
+    int pages;
+    string name;
+    float price;
+
+public:
+    void accept() {
+        cout << "Enter value of name, price, pages: ";
+        cin >> ws; 
+        getline(cin, name);
+        cin >> price >> pages;
+    }
+
+    void display() {
+        cout << "Name: " << name << ", Price: " << price << ", Pages: " << pages << endl;
+    }
+
+    float getPrice() {
+        return price;
+    }
+};
+
+int main() {
+    Book b1, b2;
+
+    b1.accept();
+    b2.accept();
+
+    cout << "\nBook with greater price:\n";
+    if (b1.getPrice() > b2.getPrice()) {
+        b1.display();
+    } else if (b2.getPrice() > b1.getPrice()) {
+        b2.display();
+    } else {
+        cout << "Both books have the same price.\n";
+        b1.display();
+        b2.display();
+    }
+
+    return 0;
+}
+output
+Enter value of name, price, pages: Harry Potter
+500
+300
+Enter value of name, price, pages: Sudha Murty
+650
+350
