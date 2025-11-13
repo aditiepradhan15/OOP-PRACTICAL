@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+class Sum {
+    int num;
+    int s;
+
+public:
+    // Parameterized constructor
+    Sum(int n) {
+        num = n;
+        s = 0;
+        for (int i = 1; i <= num; i++) {
+            s += i;
+        }
+    }
+
+    void display() {
+        cout << "Sum = " << s << endl;
+    }
+
+    // Destructor
+    ~Sum() {
+        cout << "Object destroyed" << endl;
+    }
+};
+
+int main() {
+    int n;
+    cout << "Enter value of n: ";
+    cin >> n;
+
+    Sum s1(n);    // Passing value to constructor
+    s1.display(); // Display sum
+
+    return 0;
+}
+output
+Enter value of n: 5
+Sum = 15
+Object destroyed
